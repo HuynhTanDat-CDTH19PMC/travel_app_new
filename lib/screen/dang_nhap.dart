@@ -49,7 +49,6 @@ class dangnhap extends StatelessWidget {
                 border: Border(
                   bottom: BorderSide(
                       color: Colors.white,
-                      width: 0.5,
                       style: BorderStyle.solid),
                 ),
               ),
@@ -86,7 +85,6 @@ class dangnhap extends StatelessWidget {
                 border: Border(
                   bottom: BorderSide(
                       color: Colors.white,
-                      width: 0.5,
                       style: BorderStyle.solid),
                 ),
               ),
