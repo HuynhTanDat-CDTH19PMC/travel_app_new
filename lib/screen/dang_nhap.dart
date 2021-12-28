@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
@@ -8,211 +9,96 @@ class dangnhap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget thaotac = thaotacIcon();
     return new Scaffold(
-      body: new Container(
-        decoration: new BoxDecoration(
-          gradient: new LinearGradient(
-            begin: Alignment.centerLeft,
-            end: new Alignment(1.0, 0.0),
-            colors: [Colors.blue, Colors.red.shade400],
-          ),
-        ),
-        height: MediaQuery.of(context).size.height,
+        body: new Container(
+      padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+      constraints: BoxConstraints.expand(),
+      color: Colors.white,
+      child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Container(
-              padding: const EdgeInsets.only(top: 100.0, bottom: 10.0),
-              child: Center(
-                child: new Column(
-                  children: <Widget>[
-                    Container(
-                      height: 100.0,
-                      width: 100.0,
-                      child: new Hero(
-                        tag: 'hero',
-                        child: CircleAvatar(
-                          backgroundColor: Colors.transparent,
-                          radius: 48.0,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 40, 0, 6),
+              child: Text(
+                "Chào mừng bạn đến với chúng tôi!",
+                style: TextStyle(fontSize: 22, color: Colors.red),
               ),
             ),
-            new Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(left: 40.0, right: 40.0),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                      color: Colors.white,
-                      style: BorderStyle.solid),
-                ),
-              ),
-              padding: const EdgeInsets.only(left: 0.0, right: 10.0),
-              child: new Row(
-                children: <Widget>[
-                  new Padding(
-                    padding:
-                        EdgeInsets.only(top: 7.0, bottom: 10.0, right: 00.0),
-                    child: Icon(
-                      Icons.person,
-                      color: Colors.white,
-                    ),
-                  ),
-                  new Expanded(
-                    child: TextField(
-                      textAlign: TextAlign.left,
-                      style: new TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Tên tài khoản',
-                        hintStyle: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ],
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 120, 0, 20),
+              child: TextField(
+                style: TextStyle(fontSize: 18, color: Colors.black),
+                decoration: InputDecoration(
+                    labelText: "Tên tài khoản",
+                    prefixIcon:
+                        Container(width: 50, child: Icon(Icons.person_outline)),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black, width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(6)))),
               ),
             ),
-            new Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                      color: Colors.white,
-                      style: BorderStyle.solid),
-                ),
-              ),
-              padding: const EdgeInsets.only(left: 0.0, right: 10.0),
-              child: new Row(
-                children: <Widget>[
-                  new Padding(
-                    padding:
-                        EdgeInsets.only(top: 7.0, bottom: 10.0, right: 00.0),
-                    child: Icon(
-                      Icons.lock_open,
-                      color: Colors.white,
-                    ),
-                  ),
-                  new Expanded(
-                    child: TextField(
-                      obscureText: true,
-                      textAlign: TextAlign.left,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Mật khẩu',
-                        hintStyle: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  thaotac
-                ],
-              ),
+            TextField(
+              style: TextStyle(fontSize: 18, color: Colors.black),
+              obscureText: true,
+              decoration: InputDecoration(
+                  labelText: "Nhập mật khẩu",
+                  prefixIcon:
+                      Container(width: 50, child: Icon(Icons.lock_outline)),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black, width: 1),
+                      borderRadius: BorderRadius.all(Radius.circular(6)))),
             ),
-            new Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(left: 40.0, right: 40.0, top: 30.0),
-              alignment: Alignment.center,
-              child: new Row(
-                children: <Widget>[
-                  new Expanded(
-                    child: new FlatButton(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 20.0, horizontal: 20.0),
-                        color: Colors.lightBlue,
-                        child: Text(
-                          "Đăng nhập",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => home()),
-                          );
-                        }),
-                  ),
-                ],
-              ),
-            ),
-            new Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0),
-              alignment: Alignment.center,
-              child: new Row(
-                children: <Widget>[
-                  new Expanded(
-                    child: new FlatButton(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 20.0, horizontal: 20.0),
-                      color: Colors.transparent,
-                      child: Text(
-                        "Quên mật khẩu?",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onPressed: () => {},
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            new Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(
-                  left: 40.0, right: 40.0, top: 10.0, bottom: 20.0),
-              alignment: Alignment.center,
-              child: new Row(
-                children: <Widget>[
-                  new Expanded(
-                    child: new FlatButton(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 20.0, horizontal: 20.0),
-                      color: Colors.transparent,
-                      child: Text(
-                        "Bạn chưa có tài khoản? Đăng ký",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onPressed: () => {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => dangky()),
-                        )
+            Padding(
+                padding: EdgeInsets.fromLTRB(0, 30, 0, 40),
+                child: SizedBox(
+                    width: double.infinity,
+                    height: 52,
+                    child: RaisedButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => home()));
                       },
-                    ),
-                  ),
-                ],
+                      child: Text(
+                        "Đăng nhập",
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                      color: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(6))),
+                    ))),
+            new Container(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: RichText(
+                  text: TextSpan(
+                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      text: "Quên mật khẩu?",
+                      style: TextStyle(color: Colors.black))),
+            ),
+            new Container(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+              child: RichText(
+                text: TextSpan(
+                    text: "Bạn chưa có tài khoản?",
+                    children: <TextSpan>[
+                      TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => dangky()));
+                            },
+                          text: " Đăng ký",
+                          style: TextStyle(
+                            color: Colors.blue,
+                          ))
+                    ]),
               ),
             ),
           ],
         ),
       ),
-    );
+    ));
   }
 }
 
-class thaotacIcon extends StatefulWidget {
-  const thaotacIcon({Key? key}) : super(key: key);
-
-  @override
-  State<thaotacIcon> CreateState() => _thaotacIconState();
-}
-
-class _thaotacIconState extends State<thaotacIcon> {
-  @override
-  Widget build(BuildContext context) {
-    bool out = true;
-    return Row(children: [
-      IconButton(
-        onPressed: () {
-          setState() {}
-        },
-        icon: out ? Icon(Icons.visibility) : Icon(Icons.visibility_off),
-        color: Colors.white,
-      )
-    ]);
-  }
-}
