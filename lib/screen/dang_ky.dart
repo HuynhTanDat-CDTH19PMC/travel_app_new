@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'dang_nhap.dart';
@@ -12,274 +13,124 @@ class dangky extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.blue),
+        elevation: 0,
+      ),
       body: new Container(
-        decoration: new BoxDecoration(
-          gradient: new LinearGradient(
-            begin: Alignment.centerLeft,
-            end: new Alignment(1.0, 0.0),
-            colors: [Colors.blue, Colors.red.shade400],
-          ),
-        ),
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          children: <Widget>[
-            Container(
-              padding: const EdgeInsets.only(top: 25.0, bottom: 10.0),
-              child: Center(
-                child: new Column(
-                  children: <Widget>[
-                    Container(
-                      height: 100.0,
-                      width: 100.0,
-                      child: new Hero(
-                        tag: 'hero',
-                        child: CircleAvatar(
-                          backgroundColor: Colors.transparent,
-                          radius: 48.0,
-                        ),
-                      ),
-                    ),
-                  ],
+        padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+        constraints: BoxConstraints.expand(),
+        color: Colors.white,
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 40, 0, 6),
+                child: Text(
+                  "Vui lòng điền đầy đủ thông tin!",
+                  style: TextStyle(fontSize: 22, color: Colors.red),
                 ),
               ),
-            ),
-            new Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(left: 40.0, right: 40.0),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom:
-                      BorderSide(color: Colors.white, style: BorderStyle.solid),
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 80, 0, 20),
+                child: TextField(
+                  style: TextStyle(fontSize: 18, color: Colors.black),
+                  decoration: InputDecoration(
+                      labelText: "Nhập họ tên người dùng",
+                      prefixIcon: Container(
+                          width: 50, child: Icon(Icons.person_outline)),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black, width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(6)))),
                 ),
               ),
-              padding: const EdgeInsets.only(left: 0.0, right: 10.0),
-              child: new Row(
-                children: <Widget>[
-                  new Padding(
-                    padding:
-                        EdgeInsets.only(top: 7.0, bottom: 10.0, right: 00.0),
-                    child: Icon(
-                      Icons.person,
-                      color: Colors.white,
-                    ),
-                  ),
-                  new Expanded(
-                    child: TextField(
-                      textAlign: TextAlign.left,
-                      style: new TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Nhập tên tài khoản',
-                        hintStyle: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ],
+              TextField(
+                style: TextStyle(fontSize: 18, color: Colors.black),
+                obscureText: true,
+                decoration: InputDecoration(
+                    labelText: "Nhập email",
+                    prefixIcon:
+                        Container(width: 50, child: Icon(Icons.mail_outline)),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black, width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(6)))),
               ),
-            ),
-            new Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom:
-                      BorderSide(color: Colors.white, style: BorderStyle.solid),
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                child: TextField(
+                  style: TextStyle(fontSize: 18, color: Colors.black),
+                  decoration: InputDecoration(
+                      labelText: "Nhập số điện thoại",
+                      prefixIcon: Container(
+                          width: 50, child: Icon(Icons.phone_outlined)),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black, width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(6)))),
                 ),
               ),
-              padding: const EdgeInsets.only(left: 0.0, right: 10.0),
-              child: new Row(
-                children: <Widget>[
-                  new Padding(
-                    padding:
-                        EdgeInsets.only(top: 7.0, bottom: 10.0, right: 00.0),
-                    child: Icon(
-                      Icons.lock_open,
-                      color: Colors.white,
-                    ),
-                  ),
-                  new Expanded(
-                    child: TextField(
-                      obscureText: true,
-                      textAlign: TextAlign.left,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Nhâp mật khẩu',
-                        hintStyle: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  thaotacIcon()
-                ],
+              TextField(
+                style: TextStyle(fontSize: 18, color: Colors.black),
+                obscureText: true,
+                decoration: InputDecoration(
+                    labelText: "Nhập tên tài khoản",
+                    prefixIcon:
+                        Container(width: 50, child: Icon(Icons.person_outline)),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black, width: 1),
+                        borderRadius: BorderRadius.all(Radius.circular(6)))),
               ),
-            ),
-            new Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(left: 40.0, right: 40.0, top: 10.0),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom:
-                      BorderSide(color: Colors.white, style: BorderStyle.solid),
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                child: TextField(
+                  style: TextStyle(fontSize: 18, color: Colors.black),
+                  decoration: InputDecoration(
+                      labelText: "Nhập mật khẩu",
+                      prefixIcon:
+                          Container(width: 50, child: Icon(Icons.lock_outline)),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.black, width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(6)))),
                 ),
               ),
-              padding: const EdgeInsets.only(left: 0.0, right: 10.0),
-              child: new Row(
-                children: <Widget>[
-                  new Padding(
-                    padding:
-                        EdgeInsets.only(top: 7.0, bottom: 10.0, right: 00.0),
-                    child: Icon(
-                      Icons.lock_open,
-                      color: Colors.white,
-                    ),
-                  ),
-                  new Expanded(
-                    child: TextField(
-                      obscureText: true,
-                      textAlign: TextAlign.left,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Nhập lại mật khẩu',
-                        hintStyle: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  thaotacIcon()
-                ],
-              ),
-            ),
-            new Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(left: 40.0, right: 40.0),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom:
-                      BorderSide(color: Colors.white, style: BorderStyle.solid),
-                ),
-              ),
-              padding: const EdgeInsets.only(left: 0.0, right: 10.0),
-              child: new Row(
-                children: <Widget>[
-                  new Padding(
-                    padding:
-                        EdgeInsets.only(top: 7.0, bottom: 10.0, right: 00.0),
-                    child: Icon(
-                      Icons.person,
-                      color: Colors.white,
-                    ),
-                  ),
-                  new Expanded(
-                    child: TextField(
-                      textAlign: TextAlign.left,
-                      style: new TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Nhập họ tên',
-                        hintStyle: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            new Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(left: 40.0, right: 40.0),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom:
-                      BorderSide(color: Colors.white, style: BorderStyle.solid),
-                ),
-              ),
-              padding: const EdgeInsets.only(left: 0.0, right: 10.0),
-              child: new Row(
-                children: <Widget>[
-                  new Padding(
-                    padding:
-                        EdgeInsets.only(top: 7.0, bottom: 10.0, right: 00.0),
-                    child: Icon(
-                      Icons.email,
-                      color: Colors.white,
-                    ),
-                  ),
-                  new Expanded(
-                    child: TextField(
-                      textAlign: TextAlign.left,
-                      style: new TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Nhập email',
-                        hintStyle: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            new Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(left: 40.0, right: 40.0),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom:
-                      BorderSide(color: Colors.white, style: BorderStyle.solid),
-                ),
-              ),
-              padding: const EdgeInsets.only(left: 0.0, right: 10.0),
-              child: new Row(
-                children: <Widget>[
-                  new Padding(
-                    padding:
-                        EdgeInsets.only(top: 7.0, bottom: 10.0, right: 00.0),
-                    child: Icon(
-                      Icons.phone,
-                      color: Colors.white,
-                    ),
-                  ),
-                  new Expanded(
-                    child: TextField(
-                      textAlign: TextAlign.left,
-                      style: new TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Nhập số điện thoại',
-                        hintStyle: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            new Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.only(left: 40.0, right: 40.0, top: 30.0),
-              alignment: Alignment.center,
-              child: new Row(
-                children: <Widget>[
-                  new Expanded(
-                    child: new FlatButton(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 20.0, horizontal: 20.0),
-                        color: Colors.lightBlue,
+              Padding(
+                  padding: EdgeInsets.fromLTRB(0, 15, 0, 40),
+                  child: SizedBox(
+                      width: double.infinity,
+                      height: 52,
+                      child: RaisedButton(
+                        onPressed: () {},
                         child: Text(
                           "Đăng ký",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        }),
-                  ),
-                ],
-              ),
-            ),
-          ],
+                        color: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(6))),
+                      ))),
+              Container(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: RichText(
+                    text: TextSpan(
+                        text: "Bạn đã có tài khoản?",
+                        children: <TextSpan>[
+                      TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => dangnhap()));
+                            },
+                          text: " Đăng nhập ngay",
+                          style: TextStyle(color: Colors.blue))
+                    ])),
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 }
+
