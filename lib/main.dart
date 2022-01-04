@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/screen/chi_tiet_dia_diem.dart';
+import 'package:travel_app/screen/dang_nhap.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +17,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: Text('data'));
+        home: DangNhap());
   }
 }

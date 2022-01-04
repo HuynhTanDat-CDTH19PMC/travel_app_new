@@ -1,15 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:travel_app/screen/dang_nhap.dart';
 
-import 'dang_nhap.dart';
-
-void main() {
-  runApp(dangky());
-}
-
-class dangky extends StatelessWidget {
-  const dangky({Key? key}) : super(key: key);
-
+class DangKy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -120,7 +113,7 @@ class dangky extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => dangnhap()));
+                                      builder: (context) => DangNhap()));
                             },
                           text: " Đăng nhập ngay",
                           style: TextStyle(color: Colors.blue))
@@ -133,4 +126,3 @@ class dangky extends StatelessWidget {
     );
   }
 }
-

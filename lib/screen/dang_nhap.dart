@@ -1,16 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:travel_app/screen/dang_ky.dart';
 
-import 'home.dart';
-import 'dang_ky.dart';
-
-class dangnhap extends StatelessWidget {
-  const dangnhap({Key? key}) : super(key: key);
-
+class DangNhap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        body: new Container(
+    return Scaffold(
+        body: Container(
       padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
       constraints: BoxConstraints.expand(),
       color: Colors.white,
@@ -55,8 +51,8 @@ class dangnhap extends StatelessWidget {
                     height: 52,
                     child: RaisedButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => home()));
+                        // Navigator.push(context,
+                        //     MaterialPageRoute(builder: (context) => home()));
                       },
                       child: Text(
                         "Đăng nhập",
@@ -66,7 +62,7 @@ class dangnhap extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(6))),
                     ))),
-            new Container(
+            Container(
               padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
               child: RichText(
                   text: TextSpan(
@@ -74,7 +70,7 @@ class dangnhap extends StatelessWidget {
                       text: "Quên mật khẩu?",
                       style: TextStyle(color: Colors.black))),
             ),
-            new Container(
+            Container(
               padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
               child: RichText(
                 text: TextSpan(
@@ -86,7 +82,7 @@ class dangnhap extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => dangky()));
+                                      builder: (context) => DangKy()));
                             },
                           text: " Đăng ký",
                           style: TextStyle(
@@ -101,4 +97,3 @@ class dangnhap extends StatelessWidget {
     ));
   }
 }
-
